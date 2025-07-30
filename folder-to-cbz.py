@@ -2,7 +2,7 @@ import argparse
 import os
 import zipfile
 
-EXTENSIONS=['.jpg','.JPG','.jpeg','.JPEG','.png','.PNG','.webp','.WEBP']
+EXTENSIONS=['.jpg','.JPG','.jpeg','.JPEG','.png','.PNG','.webp','.WEBP', '.gif', '.GIF'] #, '.xml', '.XML']
 
 def get_images(base, E):
     file_list={}
@@ -22,9 +22,11 @@ parser = argparse.ArgumentParser(
     epilog="Author : Suraj B" # optional
 )
 
+# default os.getcwd() can be used as default but that might not be very safe to do, esp if script is run from root.
 parser.add_argument("path",help="Path of folder to archive")
 parser.add_argument("-d","--delete",action="store_true",default=False,
 help="Deletes the original files (and the folder if it's empty) after archiving is complete.")
+
 args=parser.parse_args()
 folder=args.path
 delete=args.delete
